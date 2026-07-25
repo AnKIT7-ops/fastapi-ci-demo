@@ -43,8 +43,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.ankit7777 }}
+          password: ${{ secrets.ANKIT7777 }}
 
       - name: Build and push image
         uses: docker/build-push-action@v5
@@ -52,5 +52,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-ci-demo:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-ci-demo:${{ github.sha }}
+            ${{ secrets.ankit7777 }}/fastapi-ci-demo:latest
+            ${{ secrets.ankit7777 }}/fastapi-ci-demo:${{ github.sha }}
