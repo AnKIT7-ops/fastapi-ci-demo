@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 
 app = FastAPI(title="CI Demo API")
