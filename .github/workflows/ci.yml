@@ -54,3 +54,9 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-ci-demo:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-ci-demo:${{ github.sha }}
+      - name: Smoke test the image
+        run: |
+          docker run -d -p 8000:8000 --name test-container ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-ci-demo:${{ github.sha }}
+          sleep 5
+          curl --fail http://localhost:8000/health
+          docker stop test-container
